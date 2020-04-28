@@ -4,7 +4,7 @@ metadata:
   name: pal-tracker
   labels:
     app: pal-tracker
-spec: 
+spec:
   selector:
     matchLabels:
       app: pal-tracker
@@ -15,6 +15,12 @@ spec:
         app: pal-tracker
         name: pal-tracker-pod
     spec:
-        containers:
-          - name: pal-tracker-container
-            image: hanchenjhc/pal-tracker:v0
+      containers:
+        - name: pal-tracker-container
+          image: hanchenjhc/pal-tracker:v1
+          env:
+            - name: WELCOME_MESSAGE
+              valueFrom:
+                configMapKeyRef:
+                  name: pal-tracker
+                  key: welcome.message
