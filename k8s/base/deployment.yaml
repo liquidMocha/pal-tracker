@@ -18,6 +18,9 @@ spec:
       containers:
         - name: pal-tracker-container
           image: hanchenjhc/pal-tracker:v1
+          envFrom:
+            - secretRef:
+                name: db-credentials
           readinessProbe:
             httpGet:
               port: 8080
