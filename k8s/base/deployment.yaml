@@ -33,6 +33,16 @@ spec:
             limits:
               cpu: "100m"
           env:
+            - name: MANAGEMENT_ENDPOINT_HEALTH_SHOWDETAILS
+              valueFrom:
+                configMapKeyRef:
+                  name: pal-tracker
+                  key: MANAGEMENT_ENDPOINT_HEALTH_SHOWDETAILS
+            - name: MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE
+              valueFrom:
+                configMapKeyRef:
+                  name: pal-tracker
+                  key: MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE
             - name: WELCOME_MESSAGE
               valueFrom:
                 configMapKeyRef:
